@@ -22,7 +22,7 @@ composer require larsklopstra/nebula
 After you have done that, publish the assets and configuration via the command line:
 
 ```bash
-php artisan nebula:publish
+php artisan nebula:install
 ```
 
 That is it, you should be prompted with a welcome screen if you visit `/nebula`.
