@@ -1,0 +1,10 @@
+{
+  "title": "Nebula, an open-source and easy to use admin panel for Laravel.",
+  "url": "",
+  "logo": {
+    "light": "/logo-light.svg",
+    "dark": "/logo-dark.svg"
+  },
+  "github": "larsklopstra/nebula-docs",
+  "twitter": "@larsklopstra"
+}
