@@ -1,7 +1,7 @@
 ---
 title: Sponsors
 description: "Support Nebula."
-position: 3
+position: 5
 category: Getting started
 fullscreen: true
 ---
