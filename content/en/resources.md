@@ -86,12 +86,11 @@ class UserResource extends NebulaResource
 {
     // ...
 
-    public function columns(): array
+    public function fields(): array
     {
         return [
-            'id',
-            'name',
-            'email',
+            InputField::make('name'),
+            InputField::make('email'),
         ];
     }
 }
@@ -122,18 +121,8 @@ class UserResource extends NebulaResource
     public function fields(): array
     {
         return [
-            (new InputField)
-                ->make('name')
-                ->type('email')
-                ->rules('required'),
-            (new InputField)
-                ->make('email')
-                ->type('email')
-                ->rules('required|email'),
-            (new InputField)
-                ->make('password')
-                ->type('password')
-                ->rules('required|min:8'),
+            InputField::make('name'),
+            InputField::make('email'),
         ];
     }
 }
@@ -210,13 +199,7 @@ class UserResource extends NebulaResource
 {
     // ...
 
-    public function searchable(): array
-    {
-        return [
-            'name',
-            'email',
-        ];
-    }
+    protected $searchable = ['name', 'email'];
 }
 ```
 
@@ -295,18 +278,25 @@ use Larsklopstra\Nebula\Contracts\NebulaResource;
 class UserResource extends NebulaResource
 {
     // ...
+    
+    public function indexQuery()
+    {
+        return $this->model()::query()
+            ->withoutGlobalScopes()
+            ->with($this->with);
+    }
 
-    public function update($model, $data)
+    public function updateQuery($model, $data)
     {
         $model->update($data);
     }
 
-    public function store($model, $data)
+    public function storeQuery($model, $data)
     {
         $model::create($data);
     }
 
-    public function delete($model)
+    public function destroyQuery($model)
     {
         $model->delete();
     }

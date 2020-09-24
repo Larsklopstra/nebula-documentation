@@ -26,16 +26,13 @@ class UserResource extends NebulaResource
     public function fields(): array
     {
         return [
-            (new InputField)
-                ->make('name')
+            InputField::make('name')
                 ->type('email')
                 ->rules('required'),
-            (new InputField)
-                ->make('email')
+            InputField::make('email')
                 ->type('email')
                 ->rules('required|email'),
-            (new InputField)
-                ->make('password')
+            InputField::make('password')
                 ->type('password')
                 ->rules('required|min:8'),
         ];
@@ -57,8 +54,7 @@ Out of the box Nebula offers the following fields:
 ## Input field
 
 ```php
-(new InputField)
-    ->make('email')
+InputField::make('email')
     ->label('Team member email address')
     ->type('email')
     ->placeholder('lars@example.com')
@@ -71,8 +67,7 @@ Out of the box Nebula offers the following fields:
 ## Textarea field
 
 ```php
-(new TextareaField)
-    ->make('note')
+TextareaField::make('note')
     ->label('Write a note')
     ->placeholder('Today I did...')
     ->required()
@@ -84,8 +79,7 @@ Out of the box Nebula offers the following fields:
 ## Boolean field
 
 ```php
-(new BooleanField)
-    ->make('is_admin')
+BooleanField::make('is_admin')
     ->label('Admin account')
     ->value(true)
 ```
@@ -95,8 +89,7 @@ Out of the box Nebula offers the following fields:
 ## Color field
 
 ```php
-(new ColorField)
-    ->make('color')
+ColorField::make('color')
     ->label('Organization color')
     ->colors([
         '#1c64f2',
@@ -110,9 +103,9 @@ Out of the box Nebula offers the following fields:
 ## Date field
 
 ```php
-(new DateField)
-    ->make('completed_at')
+DateField::make('completed_at')
     ->value($task->completed_at)
+    ->format('d-m-Y')
 ```
 
 ![Color field example](/images/fields/date.png)
@@ -145,7 +138,7 @@ class AwesomeField extends NebulaField
 
     public function getDetailsComponent()
     {
-        return 'nebula::fields.details.text';
+        return 'nebula::fields.details.input';
     }
 }
 ```
@@ -154,7 +147,7 @@ As you can see, your custom field will inherit from the NebulaField contract and
 
 ### Views
 
-Okay, now. It is time to create some custom views. You can use the default Nebula views like `nebula::fields.details.text`, `nebula::fields.details.textarea`, and `nebula::fields.forms.input` but for most use cases it is more logical to create something yourself.
+Okay, now. It is time to create some custom views. You can use the default Nebula views like `nebula::fields.details.input`, `nebula::fields.details.textarea`, and `nebula::fields.forms.input` but for most use cases it is more logical to create something yourself.
 
 Nebula suggests creating your views inside `resources/views/components/nebula` so you can easily call it like `nebula.forms.field-name` and `nebula.details.field-name`.
 
@@ -191,7 +184,7 @@ The form component is used for storing and updating data.
 ```blade
 <!-- resources/views/components/nebula/forms/awesome.blade.php -->
 
-@props(['field'])
+@props(['field', 'item' => null])
 
 <x-nebula::form-row :field="$field">
 
@@ -199,8 +192,8 @@ The form component is used for storing and updating data.
 
         <input class="block w-full max-w-lg border border-gray-300 rounded-lg shadow-sm form-input sm:text-sm"
             placeholder="{{ $field->getPlaceholder() }}" id="{{ $field->getName() }}"
-            value="{{ old($field->getName()) ?? $field->getValue() }}" {{ $field->getRequired() ? 'required' : '' }}
-            name="{{ $field->getName() }}" type="{{ $field->getType() }}">
+            value="{{ old($field->getName()) ?? (Arr::get($item, $field->getName()) ?? $field->getValue()) }}"
+            {{ $field->getRequired() ? 'required' : '' }} name="{{ $field->getName() }}" type="{{ $field->getType() }}">
 
         <x-nebula::error :for="$field->getName()" />
 
