@@ -40,7 +40,7 @@ Nebula is for Laravel developers who quickly want to scaffold professional-looki
 Perhaps Nebula is not your cup of tea (yet.) But no worries, there are plenty of alternatives which may help you build your next project.
 
 - [Laravel Nova](https://nova.laravel.com)
-- [Laravel Content-Administration (Fjord)](https://relaxed-lovelace-429a31.netlify.app/)
+- [Litstack (Fjord)](https://litstack.io/docs)
 - [Voyager](https://voyager.devdojo.com/)
 
 ## Credits
