@@ -41,6 +41,7 @@ Perhaps Nebula is not your cup of tea (yet.) But no worries, there are plenty of
 
 - [Laravel Nova](https://nova.laravel.com)
 - [Litstack (Fjord)](https://litstack.io/docs)
+- [Orchid Platform](https://orchid.software)
 - [Voyager](https://voyager.devdojo.com/)
 
 ## Credits
