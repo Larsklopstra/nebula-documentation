@@ -27,7 +27,7 @@ class UserResource extends NebulaResource
     {
         return [
             InputField::make('name')
-                ->type('email')
+                ->type('text')
                 ->rules('required'),
             InputField::make('email')
                 ->type('email')
