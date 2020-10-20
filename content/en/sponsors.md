@@ -16,4 +16,4 @@ Your sponsorship will motivate me to add more features and fix bugs faster.
 
 ## Sponsors
 
-Hmmm... Looks rather empty here. Become the first one [here](https://github.com/sponsors/Larsklopstra).
+- [Ploi.io](https://ploi.io/?utm_source=github&utm_medium=sponsor&utm_campaign=larsklopstra)
