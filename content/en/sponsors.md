@@ -17,3 +17,4 @@ Your sponsorship will motivate me to add more features and fix bugs faster.
 ## Sponsors
 
 - [Ploi.io](https://ploi.io/?utm_source=github&utm_medium=sponsor&utm_campaign=larsklopstra)
+- [Lorenzo Sapora](https://github.com/LorenzoSapora)
