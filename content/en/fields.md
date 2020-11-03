@@ -17,7 +17,7 @@ To register a field you have to add it to the resource its `fields` method which
 // app/Nebula/Resources/UserResource.php
 
 use Larsklopstra\Nebula\Contracts\NebulaResource;
-use Larsklopstra\Nebula\Fields\InputField;
+use Larsklopstra\Nebula\Fields\Input;
 
 class UserResource extends NebulaResource
 {
@@ -26,13 +26,13 @@ class UserResource extends NebulaResource
     public function fields(): array
     {
         return [
-            InputField::make('name')
+            Input::make('name')
                 ->type('email')
                 ->rules('required'),
-            InputField::make('email')
+            Input::make('email')
                 ->type('email')
                 ->rules('required|email'),
-            InputField::make('password')
+            Input::make('password')
                 ->type('password')
                 ->rules('required|min:8'),
         ];
@@ -54,7 +54,7 @@ Out of the box Nebula offers the following fields:
 ## Input field
 
 ```php
-InputField::make('email')
+Input::make('email')
     ->label('Team member email address')
     ->type('email')
     ->placeholder('lars@example.com')
