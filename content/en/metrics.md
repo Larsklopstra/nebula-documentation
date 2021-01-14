@@ -68,7 +68,7 @@ class UserCountMetric extends ValueMetric
 {
     public function calculate()
     {
-        $this->count(User:class);
+        $this->count(User::class);
     }
 
     public function label()
@@ -92,7 +92,7 @@ class UserCountMetric extends ValueMetric
 {
     public function calculate()
     {
-        $this->count(User:class);
+        $this->count(User::class);
     }
 
     public function label()
