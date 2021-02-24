@@ -86,7 +86,7 @@ class UserResource extends NebulaResource
 {
     // ...
 
-    public function fields(): array
+    public function columns(): array
     {
         return [
             InputField::make('name'),
