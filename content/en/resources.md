@@ -86,7 +86,7 @@ class UserResource extends NebulaResource
 {
     // ...
 
-    public function fields(): array
+    public function columns(): array
     {
         return [
             InputField::make('name'),
@@ -112,7 +112,7 @@ For this example, we will just stick with fields:
 // app/Nebula/Resources/UserResource.php
 
 use Larsklopstra\Nebula\Contracts\NebulaResource;
-use Larsklopstra\Nebula\Fields\InputField;
+use Larsklopstra\Nebula\Fields\Input;
 
 class UserResource extends NebulaResource
 {
@@ -121,8 +121,8 @@ class UserResource extends NebulaResource
     public function fields(): array
     {
         return [
-            InputField::make('name'),
-            InputField::make('email'),
+            Input::make('name'),
+            Input::make('email'),
         ];
     }
 }
